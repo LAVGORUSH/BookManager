@@ -1,15 +1,23 @@
 package com.lavgorush.bookmanager.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "BOOKS")
 public class Book {
-
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+
+    @Column(name = "price")
     private int price;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "author")
     private String author;
 
 
