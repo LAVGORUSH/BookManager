@@ -26,7 +26,6 @@ public class BookController {
     public String listBooks(Model model) {
         model.addAttribute("book", new Book());
         model.addAttribute("listBooks", this.bookService.listBook());
-
         return "books";
     }
 
@@ -37,7 +36,6 @@ public class BookController {
         } else {
             this.bookService.updateBook(book);
         }
-
         return "redirect:/books";
     }
 
@@ -57,7 +55,6 @@ public class BookController {
     @GetMapping("bookdata/${id}")
     public String bookData(@PathVariable("id") int id, Model model) {
         model.addAttribute("book", this.bookService.getBookById(id));
-
         return "bookdata";
     }
 
