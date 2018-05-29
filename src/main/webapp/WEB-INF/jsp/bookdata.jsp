@@ -1,8 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="css/style.css">
+    <jsp:include page="fragments/headTag.jsp"/>
 </head>
 <body>
 <jsp:useBean id="book" scope="request" type="com.lavgorush.bookmanager.model.Book"/>
@@ -18,7 +17,7 @@
         <td>${book.id}</td>
         <td>${book.title}</td>
         <td>${book.author}</td>
-        <td>${book.price/100}.${book.price%100}</td>
+        <td>${book.price/100}${book.price%100}</td>
     </tr>
 </table>
 </body>

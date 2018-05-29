@@ -1,11 +1,9 @@
 package com.lavgorush.bookmanager.service;
 
 import com.lavgorush.bookmanager.model.Book;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface BookService {
 
     void addBook(Book book);

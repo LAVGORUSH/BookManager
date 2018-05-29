@@ -16,7 +16,7 @@ public class BookController {
 
     private BookService bookService;
 
-    @Autowired
+    @Autowired(required = true)
     @Qualifier(value = "bookService")
     public void setBookService(BookService bookService) {
         this.bookService = bookService;
@@ -39,20 +39,20 @@ public class BookController {
         return "redirect:/books";
     }
 
-    @GetMapping("remove/${id}")
+    @GetMapping(value = "/remove/{id}")
     public String removeBook(@PathVariable("id") int id) {
         this.bookService.removeBook(id);
         return "redirect:/books";
     }
 
-    @GetMapping("edit/${id}")
+    @GetMapping(value = "edit/{id}")
     public String editBook(@PathVariable("id") int id, Model model) {
         model.addAttribute("book", this.bookService.getBookById(id));
         model.addAttribute("listBooks", this.bookService.listBook());
         return "books";
     }
 
-    @GetMapping("bookdata/${id}")
+    @GetMapping(value = "/bookdata/{id}")
     public String bookData(@PathVariable("id") int id, Model model) {
         model.addAttribute("book", this.bookService.getBookById(id));
         return "bookdata";
